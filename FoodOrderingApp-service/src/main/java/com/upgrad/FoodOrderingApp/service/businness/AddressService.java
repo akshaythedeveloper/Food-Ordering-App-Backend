@@ -155,4 +155,11 @@ public class AddressService {
 
     }
 
+    public TypedQuery<StateEntity> getAllStates() {
+
+        return addressDao.getAllStates();
+
+    }
+
+
 }

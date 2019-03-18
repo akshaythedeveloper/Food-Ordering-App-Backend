@@ -74,5 +74,34 @@ public class AddressController {
    }
 
 
+    @RequestMapping(method = RequestMethod.GET , path = "/states" , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<List<StatesListResponse>> getAllStates() {
+
+        List<StateEntity> statesEntityList = addressBusinessService.getAllStates().getResultList();
+
+        List<StatesListResponse> statesListResponses = new ArrayList<>();
+
+        List<StatesList> statesLists = new ArrayList<>();
+
+
+        for(StateEntity stateEntity : statesEntityList) {
+
+            StatesList statesList = new StatesList();
+
+            statesList.setId(UUID.fromString(stateEntity.getUuid()));
+            statesList.setStateName(stateEntity.getStateName());
+            statesLists.add(statesList);
+
+        }
+
+        //StatesListResponse statesListResponse = new StatesListResponse().states(statesLists);
+        statesListResponses.add(new StatesListResponse().states(statesLists));
+        return new ResponseEntity<List<StatesListResponse>>(statesListResponses, HttpStatus.OK);
+
+
+    }
+
+
+
 
 }
