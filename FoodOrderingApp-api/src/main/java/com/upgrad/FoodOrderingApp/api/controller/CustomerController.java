@@ -1,15 +1,13 @@
 package com.upgrad.FoodOrderingApp.api.controller;
 
-import com.upgrad.FoodOrderingApp.api.model.LoginResponse;
-import com.upgrad.FoodOrderingApp.api.model.LogoutResponse;
-import com.upgrad.FoodOrderingApp.api.model.SignupCustomerRequest;
-import com.upgrad.FoodOrderingApp.api.model.SignupCustomerResponse;
+import com.upgrad.FoodOrderingApp.api.model.*;
 import com.upgrad.FoodOrderingApp.service.businness.CustomerService;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerAuthEntity;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
 import com.upgrad.FoodOrderingApp.service.exception.AuthenticationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.AuthorizationFailedException;
 import com.upgrad.FoodOrderingApp.service.exception.SignUpRestrictedException;
+import com.upgrad.FoodOrderingApp.service.exception.UpdateCustomerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -78,7 +76,9 @@ public class CustomerController {
         String decodedText = new String(decode);
         String[] decodedArray = decodedText.split(":");
 
-        String authCheck = "Basic" + " " + authorization;
+        String[] splitAuthorization = authorization.split("\\s");
+
+        String authCheck = "Basic" + " " + splitAuthorization[1];
         if(!authorization.equals(authCheck)) {
             throw new AuthenticationFailedException("ATH-003" , "Incorrect format of decoded customer name and password");
         }
@@ -109,11 +109,28 @@ public class CustomerController {
     @RequestMapping(method = RequestMethod.POST , path = "/logout" , consumes = MediaType.APPLICATION_JSON_UTF8_VALUE , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<LogoutResponse> logout(@RequestHeader("authorization") final String authorization) throws AuthorizationFailedException {
 
-        CustomerAuthEntity customerAuthEntity = customerBusinessService.logout(authorization);
+        String auth = "Bearer" + " " + authorization;
+        CustomerAuthEntity customerAuthEntity = customerBusinessService.logout(auth);
 
         LogoutResponse logoutResponse = new LogoutResponse().id(customerAuthEntity.getCustomerId().getUuid()).message("LOGGED OUT SUCCESSFULLY");
         return new ResponseEntity<LogoutResponse>(logoutResponse, HttpStatus.OK);
 
+
+    }
+
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.PUT , path = "/" , consumes = MediaType.APPLICATION_JSON_UTF8_VALUE , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<UpdateCustomerResponse> update(@RequestHeader("authorization") final String authorization , UpdateCustomerRequest updateCustomerRequest) throws AuthorizationFailedException, UpdateCustomerException {
+
+        CustomerEntity customerEntity = new CustomerEntity();
+
+        customerEntity.setFirstname(updateCustomerRequest.getFirstName());
+        customerEntity.setLastname(updateCustomerRequest.getLastName());
+
+        CustomerEntity updatedCustomerEntity = customerBusinessService.updateCustomer(authorization , customerEntity);
+
+        UpdateCustomerResponse updateResponse = new UpdateCustomerResponse().id(updatedCustomerEntity.getUuid()).firstName(updatedCustomerEntity.getFirstname()).lastName(updatedCustomerEntity.getLastname()).status("CUSTOMER DETAILS UPDATED SUCCESSFULLY");
+        return new ResponseEntity<UpdateCustomerResponse>(updateResponse, HttpStatus.OK);
 
     }
 }
