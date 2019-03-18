@@ -8,6 +8,9 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "restaurant_item")
+@NamedQueries(
+        @NamedQuery(name = "getItemByRestaurant", query = "select r from RestaurantItemEntity r where r.restaurantId =:restaurantId")
+)
 public class RestaurantItemEntity {
 
     @Id
@@ -16,7 +19,7 @@ public class RestaurantItemEntity {
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "item-id")
+    @JoinColumn(name = "item_id")
     @NotNull
     private ItemEntity itemId;
 

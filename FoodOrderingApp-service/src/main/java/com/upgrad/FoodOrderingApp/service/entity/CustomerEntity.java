@@ -7,7 +7,10 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "customer")
 @NamedQueries(
-        @NamedQuery(name = "getCustomerByUUID", query = "select ce from CustomerEntity ce where ce.uuid =:uuid")
+        {
+                @NamedQuery(name = "getCustomerByUUID", query = "select ce from CustomerEntity ce where ce.uuid =:uuid"),
+                @NamedQuery(name = "customerByEmail", query = "select ce from CustomerEntity ce where ce.email =:username")
+        }
 )
 public class CustomerEntity {
 

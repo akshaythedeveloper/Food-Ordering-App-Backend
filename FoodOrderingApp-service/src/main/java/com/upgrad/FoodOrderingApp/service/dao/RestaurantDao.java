@@ -1,8 +1,6 @@
 package com.upgrad.FoodOrderingApp.service.dao;
 
-import com.upgrad.FoodOrderingApp.service.entity.CategoryEntity;
-import com.upgrad.FoodOrderingApp.service.entity.RestaurantCategoryEntity;
-import com.upgrad.FoodOrderingApp.service.entity.RestaurantEntity;
+import com.upgrad.FoodOrderingApp.service.entity.*;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -72,6 +70,21 @@ public class RestaurantDao {
         }
     }
 
+    public List<RestaurantItemEntity> getItemsByRestaurant(RestaurantEntity restaurantEntity) {
+        try {
+            return entityManager.createNamedQuery("getItemByRestaurant", RestaurantItemEntity.class).setParameter("restaurantId", restaurantEntity).getResultList();
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
+    public List<CategoryItemEntity> getItemsByCategory(CategoryEntity categoryEntity) {
+        try {
+            return entityManager.createNamedQuery("getItemByCategoryId", CategoryItemEntity.class).setParameter("categoryId", categoryEntity).getResultList();
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
 
 
 }

@@ -108,9 +108,16 @@ public class RestaurantService {
         return restaurantCategoryEntity;
     }
 
-    public List<CategoryItemEntity> getItemByCategoryId(RestaurantCategoryEntity  restaurantCategoryEntity) throws RestaurantNotFoundException {
+    public List<RestaurantItemEntity> getItemsByRestaurant(RestaurantCategoryEntity  restaurantCategoryEntity) throws RestaurantNotFoundException {
 
-        List<CategoryItemEntity> categoryItemEntity = categoryDao.getItemByCategoryId(restaurantCategoryEntity.getCategoryId());
+        List<RestaurantItemEntity> restaurantItemEntity = restaurantDao.getItemsByRestaurant(restaurantCategoryEntity.getRestaurantId());
+
+        return restaurantItemEntity;
+    }
+
+    public List<CategoryItemEntity> getItemsByCategory(RestaurantCategoryEntity  restaurantCategoryEntity) throws RestaurantNotFoundException {
+
+        List<CategoryItemEntity> categoryItemEntity = restaurantDao.getItemsByCategory(restaurantCategoryEntity.getCategoryId());
 
         return categoryItemEntity;
     }
@@ -122,7 +129,7 @@ public class RestaurantService {
     public RestaurantEntity updateRestaurantRating(RestaurantEntity restaurantEntity, Double cu) throws AuthorizationFailedException, RestaurantNotFoundException, InvalidRatingException {
 
 
-        if(restaurantEntity.getId() == null)
+        if(restaurantEntity.getUuid() == null)
         {
             throw new RestaurantNotFoundException("RNF-002","Restaurant id field should not be empty");
         }
@@ -133,11 +140,11 @@ public class RestaurantService {
         }
 
         RestaurantEntity rEntity = restaurantDao.restaurantsByRestaurantId(restaurantEntity.getUuid());
-        if(rEntity.getId() == restaurantEntity.getId())
+        if(rEntity != null)
         {
-            restaurantEntity.setCustomerRating(restaurantEntity.getCustomerRating());
-            restaurantEntity.setNumberCustomersRated(rEntity.getNumberCustomersRated() + 1);
-            return restaurantDao.updateRestaurantEntity(restaurantEntity);
+            rEntity.setCustomerRating(restaurantEntity.getCustomerRating());
+            rEntity.setNumberCustomersRated(rEntity.getNumberCustomersRated() + 1);
+            return restaurantDao.updateRestaurantEntity(rEntity);
         }
         return restaurantEntity;
     }

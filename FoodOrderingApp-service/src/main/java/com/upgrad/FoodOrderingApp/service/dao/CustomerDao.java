@@ -33,7 +33,7 @@ public class CustomerDao {
 
     public CustomerEntity getUserByEmail(String username) {
         try {
-            return entityManager.createNamedQuery("customerByEmail" , CustomerEntity.class).setParameter("email" , username).getSingleResult();
+            return entityManager.createNamedQuery("customerByEmail" , CustomerEntity.class).setParameter("username" , username).getSingleResult();
         } catch (NoResultException nre) {
             return null;
         }

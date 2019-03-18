@@ -63,7 +63,15 @@ public class CategoryController {
             itemList.setId(UUID.fromString(itemEntity.getUuid()));
             itemList.setItemName(itemEntity.getItemName());
             itemList.setPrice(itemEntity.getPrice());
-            itemList.setItemType(ItemList.ItemTypeEnum.fromValue(itemEntity.getType()));
+            if(itemEntity.getType().equals("0"))
+            {
+                itemList.setItemType(ItemList.ItemTypeEnum.fromValue("VEG"));
+            }
+            else   if(itemEntity.getType().equalsIgnoreCase("1"))
+            {
+                itemList.setItemType(ItemList.ItemTypeEnum.fromValue("NON_VEG"));
+            }
+
             categoryListResponse.addItemListItem(itemList);
         }
 
