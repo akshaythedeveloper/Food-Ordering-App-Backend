@@ -31,7 +31,7 @@ public class CustomerController {
      * A controller method for user signup.
      * @param signupCustomerRequest - This argument contains all the attributes required to store user details in the database.
      * @return - ResponseEntity<SignupUserResponse> type object along with Http status CREATED.
-     * @throws SignUpRestrictedException
+     * @throws SignUpRestrictedException - The endpoint will throw this exception if any criteria doesn't match with the given endpoint definition.
      */
 
     @CrossOrigin
@@ -101,7 +101,7 @@ public class CustomerController {
      * A controller method for customer logout.
      * @param authorization - This argument requests the access-token of already logged-in customer.
      * @return ResponseEntity<LogoutResponse> type object along with Http status OK.
-     * @throws AuthorizationFailedException - This endpoint will throw this exception when details entered are incorrect or customer already logged-out or session expired.
+     * @throws AuthorizationFailedException - The endpoint will throw this exception when details entered are incorrect or customer already logged-out or session expired.
      */
 
 
@@ -118,6 +118,14 @@ public class CustomerController {
 
     }
 
+    /**
+     * A controller method to update user details(Firstname , Lastname)
+     * @param authorization -This argument requests the access-token of already logged-in customer.
+     * @param updateCustomerRequest - This argument contains all the attributes required to update user details in the database.
+     * @return ResponseEntity<UpdateCustomerResponse> type along with Http status OK.
+     * @throws AuthorizationFailedException - The endpoint will throw this exception when details entered are incorrect or customer already logged-out or session expired.
+     * @throws UpdateCustomerException - This endpoint will throws this exception when any field is empty or Password is weak/invalid.
+     */
     @CrossOrigin
     @RequestMapping(method = RequestMethod.PUT , path = "/" , consumes = MediaType.APPLICATION_JSON_UTF8_VALUE , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<UpdateCustomerResponse> update(@RequestHeader("authorization") final String authorization , UpdateCustomerRequest updateCustomerRequest) throws AuthorizationFailedException, UpdateCustomerException {
@@ -133,4 +141,30 @@ public class CustomerController {
         return new ResponseEntity<UpdateCustomerResponse>(updateResponse, HttpStatus.OK);
 
     }
+
+    /**
+     *
+     * @param authorization - This argument requests the access-token of already logged-in customer.
+     * @param updatePasswordRequest - This argument requests all the attributes required to update password in database.
+     * @return ResponseEntity<UpdatePasswordResponse> type along with Http status OK.
+     * @throws AuthorizationFailedException - The endpoint will throw this exception when details entered are incorrect or customer already logged-out or session expired.
+     * @throws UpdateCustomerException - The endpoint will throw this exception if any criteria doesn't match with the given endpoint definition.
+     */
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.PUT , path = "/password" , consumes = MediaType.APPLICATION_JSON_UTF8_VALUE , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<UpdatePasswordResponse> changePassword(@RequestHeader("authorization") final String authorization , UpdatePasswordRequest updatePasswordRequest) throws AuthorizationFailedException , UpdateCustomerException {
+
+        CustomerEntity customerEntity = new CustomerEntity();
+        customerEntity.setPassword(updatePasswordRequest.getNewPassword());
+
+        String oldPassword = updatePasswordRequest.getOldPassword();
+
+        CustomerEntity updatePassword = customerBusinessService.changePassword(authorization , customerEntity , oldPassword);
+
+        UpdatePasswordResponse updatePasswordResponse = new UpdatePasswordResponse().id(updatePassword.getUuid()).status("CUSTOMER PASSWORD UPDATED SUCCESSFULLY");
+        return new ResponseEntity<UpdatePasswordResponse>(updatePasswordResponse , HttpStatus.OK);
+
+    }
+
+
 }
