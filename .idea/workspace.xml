@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ee6ccb6e-ab1b-43a7-8115-b72659ae0362" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/CustomerControllerTest.java" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/CustomerControllerTest.java" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/test-classes/com/upgrad/FoodOrderingApp/api/controller/CustomerControllerTest.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/CustomerService.java" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/CustomerService.java" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.java" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.java" />
     </list>
     <ignored path="$PROJECT_DIR$/FoodOrderingApp-api/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,8 +51,8 @@
       <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="94" column="78" lean-forward="true" selection-start-line="94" selection-start-column="78" selection-end-line="94" selection-end-column="78" />
+            <state relative-caret-position="488">
+              <caret line="54" column="9" lean-forward="false" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,8 +63,8 @@
       <file leaf-file-name="CustomerControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/CustomerControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="244" column="50" lean-forward="false" selection-start-line="244" selection-start-column="50" selection-end-line="244" selection-end-column="50" />
+            <state relative-caret-position="2187">
+              <caret line="193" column="100" lean-forward="false" selection-start-line="193" selection-start-column="100" selection-end-line="193" selection-end-column="100" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,21 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerAuthEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CustomerService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/CustomerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
-              <caret line="125" column="94" lean-forward="false" selection-start-line="125" selection-start-column="94" selection-end-line="125" selection-end-column="94" />
+            <state relative-caret-position="480">
+              <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,9 +147,9 @@
         <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CustomerAuthEntity.java" />
         <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CustomerDao.java" />
         <option value="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" />
-        <option value="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java" />
-        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/CustomerService.java" />
         <option value="$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/CustomerControllerTest.java" />
+        <option value="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/CustomerService.java" />
+        <option value="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java" />
       </list>
     </option>
   </component>
@@ -354,7 +341,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerControllerTest.shouldNotLogoutIfCustomerIsAlreadyLoggedOut">
+  <component name="RunManager" selected="JUnit.CustomerControllerTest.shouldNotSignUpForEmptyRequest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -375,31 +362,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-    </configuration>
-    <configuration name="CustomerControllerTest.shouldLogoutForValidRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.upgrad.FoodOrderingApp.api.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="FoodOrderingApp-api" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.upgrad.FoodOrderingApp.api.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.upgrad.FoodOrderingApp.api.controller.CustomerControllerTest" />
-      <option name="METHOD_NAME" value="shouldLogoutForValidRequest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
     </configuration>
     <configuration name="CustomerControllerTest.shouldNotLoginForInvalidAuthorizationFormat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -501,6 +463,31 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration name="CustomerControllerTest.shouldNotSignUpForEmptyRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.upgrad.FoodOrderingApp.api.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="FoodOrderingApp-api" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.upgrad.FoodOrderingApp.api.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.upgrad.FoodOrderingApp.api.controller.CustomerControllerTest" />
+      <option name="METHOD_NAME" value="shouldNotSignUpForEmptyRequest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -563,18 +550,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLoginForInvalidAuthorizationFormat" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldLogoutForValidRequest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutWhenCustomerIsNotLoggedIn" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutIfCustomerIsAlreadyLoggedOut" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutIfSessionIsExpired" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutWhenCustomerIsNotLoggedIn" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutIfCustomerIsAlreadyLoggedOut" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutIfSessionIsExpired" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotSignUpForEmptyRequest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutIfCustomerIsAlreadyLoggedOut" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutIfSessionIsExpired" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutWhenCustomerIsNotLoggedIn" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldLogoutForValidRequest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLoginForInvalidAuthorizationFormat" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotSignUpForEmptyRequest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLoginForInvalidAuthorizationFormat" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutIfCustomerIsAlreadyLoggedOut" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutIfSessionIsExpired" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CustomerControllerTest.shouldNotLogoutWhenCustomerIsNotLoggedIn" />
       </list>
     </recent_temporary>
   </component>
@@ -592,16 +579,13 @@
       <option name="presentableId" value="Default" />
       <updated>1552849184496</updated>
       <workItem from="1552849185833" duration="2757000" />
-      <workItem from="1552853123457" duration="7487000" />
+      <workItem from="1552853123457" duration="9896000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
     <history-entry file="CustomerControllerTest_shouldLogoutForValidRequest - 2019.03.18 at 10h 33m 32s.xml">
       <configuration name="CustomerControllerTest.shouldLogoutForValidRequest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerControllerTest_shouldNotLoginForInvalidAuthorizationFormat - 2019.03.18 at 10h 10m 13s.xml">
-      <configuration name="CustomerControllerTest.shouldNotLoginForInvalidAuthorizationFormat" configurationId="JUnit" />
     </history-entry>
     <history-entry file="CustomerControllerTest_shouldNotLoginForInvalidAuthorizationFormat - 2019.03.18 at 10h 16m 59s.xml">
       <configuration name="CustomerControllerTest.shouldNotLoginForInvalidAuthorizationFormat" configurationId="JUnit" />
@@ -612,13 +596,13 @@
     <history-entry file="CustomerControllerTest_shouldNotLoginForInvalidAuthorizationFormat - 2019.03.18 at 10h 22m 03s.xml">
       <configuration name="CustomerControllerTest.shouldNotLoginForInvalidAuthorizationFormat" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CustomerControllerTest_shouldNotLoginForWrongPassword - 2019.03.18 at 10h 11m 42s.xml">
-      <configuration name="CustomerControllerTest.shouldNotLoginForWrongPassword" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerControllerTest_shouldNotLoginIfNoDataPresentForGivenMobileNo - 2019.03.18 at 10h 11m 12s.xml">
-      <configuration name="CustomerControllerTest.shouldNotLoginIfNoDataPresentForGivenMobileNo" configurationId="JUnit" />
+    <history-entry file="CustomerControllerTest_shouldNotLoginForInvalidAuthorizationFormat - 2019.03.18 at 11h 30m 56s.xml">
+      <configuration name="CustomerControllerTest.shouldNotLoginForInvalidAuthorizationFormat" configurationId="JUnit" />
     </history-entry>
     <history-entry file="CustomerControllerTest_shouldNotLogoutIfCustomerIsAlreadyLoggedOut - 2019.03.18 at 10h 34m 29s.xml">
+      <configuration name="CustomerControllerTest.shouldNotLogoutIfCustomerIsAlreadyLoggedOut" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerControllerTest_shouldNotLogoutIfCustomerIsAlreadyLoggedOut - 2019.03.18 at 10h 36m 04s.xml">
       <configuration name="CustomerControllerTest.shouldNotLogoutIfCustomerIsAlreadyLoggedOut" configurationId="JUnit" />
     </history-entry>
     <history-entry file="CustomerControllerTest_shouldNotLogoutIfSessionIsExpired - 2019.03.18 at 10h 34m 58s.xml">
@@ -627,9 +611,12 @@
     <history-entry file="CustomerControllerTest_shouldNotLogoutWhenCustomerIsNotLoggedIn - 2019.03.18 at 10h 34m 01s.xml">
       <configuration name="CustomerControllerTest.shouldNotLogoutWhenCustomerIsNotLoggedIn" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CustomerControllerTest_shouldNotSignUpForEmptyRequest - 2019.03.18 at 11h 32m 24s.xml">
+      <configuration name="CustomerControllerTest.shouldNotSignUpForEmptyRequest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10244000" />
+    <option name="totallyTimeSpent" value="12653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -709,7 +696,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -916,20 +903,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java">
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/CustomerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="94" column="78" lean-forward="true" selection-start-line="94" selection-start-column="78" selection-end-line="94" selection-end-column="78" />
+        <state relative-caret-position="480">
+          <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/CustomerService.java">
+    <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="125" column="94" lean-forward="false" selection-start-line="125" selection-start-column="94" selection-end-line="125" selection-end-column="94" />
+        <state relative-caret-position="488">
+          <caret line="54" column="9" lean-forward="false" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -938,8 +925,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/CustomerControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="244" column="50" lean-forward="false" selection-start-line="244" selection-start-column="50" selection-end-line="244" selection-end-column="50" />
+        <state relative-caret-position="2187">
+          <caret line="193" column="100" lean-forward="false" selection-start-line="193" selection-start-column="100" selection-end-line="193" selection-end-column="100" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

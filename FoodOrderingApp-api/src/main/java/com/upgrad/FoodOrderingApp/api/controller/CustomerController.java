@@ -49,6 +49,11 @@ public class CustomerController {
         customerEntity.setContactNumber(signupCustomerRequest.getContactNumber());
         customerEntity.setPassword(signupCustomerRequest.getPassword());
 
+        if (customerEntity.getFirstname() == null || customerEntity.getEmail() == null || customerEntity.getContactNumber() == null
+                || customerEntity.getPassword() == null) {
+            throw new SignUpRestrictedException("SGR-005", "Except last name all fields should be filled");
+        }
+
         final CustomerEntity createdCustomerEntity = customerBusinessService.saveCustomer(customerEntity);
 
         SignupCustomerResponse customerResponse =  new SignupCustomerResponse().id(createdCustomerEntity.getUuid()).status("CUSTOMER SUCCESSFULLY REGISTERED");
@@ -73,6 +78,11 @@ public class CustomerController {
         String decodedText = new String(decode);
         String[] decodedArray = decodedText.split(":");
 
+        String authCheck = "Basic" + " " + authorization;
+        if(!authorization.equals(authCheck)) {
+            throw new AuthenticationFailedException("ATH-003" , "Incorrect format of decoded customer name and password");
+        }
+
         CustomerAuthEntity createdCustomerAuthEntity = customerBusinessService.authenticate(decodedArray[0], decodedArray[1]);
         CustomerEntity customer = createdCustomerAuthEntity.getCustomerId();
 
@@ -86,6 +96,13 @@ public class CustomerController {
         return new ResponseEntity<LoginResponse>(loginResponse, headers, HttpStatus.OK);
 
     }
+
+    /**
+     * A controller method for customer logout.
+     * @param authorization - This argument requests the access-token of already logged-in customer.
+     * @return ResponseEntity<LogoutResponse> type object along with Http status OK.
+     * @throws AuthorizationFailedException - This endpoint will throw this exception when details entered are incorrect or customer already logged-out or session expired.
+     */
 
 
     @CrossOrigin

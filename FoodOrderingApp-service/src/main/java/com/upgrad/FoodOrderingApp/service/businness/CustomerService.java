@@ -33,10 +33,7 @@ public class CustomerService {
 
 
 
-        if (customerEntity.getFirstname() == null || customerEntity.getEmail() == null || customerEntity.getContactNumber() == null
-                || customerEntity.getPassword() == null) {
-            throw new SignUpRestrictedException("SGR-005", "Except last name all fields should be filled");
-        }
+
 
         CustomerEntity customerEntity1 = customerDao.getCustomerByContactNumber(customerEntity.getContactNumber());
         if (customerEntity1 != null) {
@@ -86,6 +83,8 @@ public class CustomerService {
         String passwordValidation = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[#@$%&*!^])(?=\\S+$).{8,}$";
         Pattern pattern1 = Pattern.compile(passwordValidation);
         Matcher matcher1 = pattern1.matcher(password);
+
+
 
 
         if (!matcher.matches() || !matcher1.matches()) {
