@@ -159,7 +159,7 @@ public class CustomerController {
 
         String oldPassword = updatePasswordRequest.getOldPassword();
 
-        CustomerEntity updatePassword = customerBusinessService.changePassword(authorization , customerEntity , oldPassword);
+        CustomerEntity updatePassword = customerBusinessService.updateCustomerPassword(authorization , customerEntity , oldPassword);
 
         UpdatePasswordResponse updatePasswordResponse = new UpdatePasswordResponse().id(updatePassword.getUuid()).status("CUSTOMER PASSWORD UPDATED SUCCESSFULLY");
         return new ResponseEntity<UpdatePasswordResponse>(updatePasswordResponse , HttpStatus.OK);

@@ -181,7 +181,7 @@ public class CustomerService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public CustomerEntity changePassword(String authorization , CustomerEntity customerEntity , String oldPassword) throws AuthorizationFailedException , UpdateCustomerException {
+    public CustomerEntity updateCustomerPassword(String authorization , CustomerEntity customerEntity , String oldPassword) throws AuthorizationFailedException , UpdateCustomerException {
 
         CustomerAuthEntity customerAuthEntity = customerDao.getCustomerByAccessToken(authorization);
 
