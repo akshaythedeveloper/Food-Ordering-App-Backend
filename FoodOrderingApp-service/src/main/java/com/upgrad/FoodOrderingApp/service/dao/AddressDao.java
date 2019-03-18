@@ -78,4 +78,12 @@ public class AddressDao {
         }
     }
 
+    public TypedQuery<CustomerAddressEntity> allCustomerAddress() {
+        try {
+            return entityManager.createNamedQuery("getAllCustomerAddress" , CustomerAddressEntity.class);
+        } catch (NullPointerException nre) {
+            return null;
+        }
+    }
+
 }

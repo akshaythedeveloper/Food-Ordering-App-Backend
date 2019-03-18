@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
 import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.regex.Matcher;
 
 @Service
@@ -103,10 +104,16 @@ public class AddressService {
 
         CustomerEntity customerEntity = customerAuthEntity.getCustomerId();
 
-        /**CustomerEntity customerEntity = new CustomerEntity();
-         CustomerAddressEntity customerAddressEntity = addressDao.getCustomerByCustomerId(customerEntity);
+        List<CustomerAddressEntity> customerAddressEntity = addressDao.allCustomerAddress().getResultList();
 
-         if(customerAuthEntity.getCustomerId() == customerAddressEntity.getCustomerId())**/
+        for (CustomerAddressEntity customerAddressEntity1 : customerAddressEntity) {
+
+        }
+
+        System.out.println(customerAuthEntity.getCustomerId());
+
+
+
 
 
         return addressDao.getAllSavedAddresses();
