@@ -23,13 +23,7 @@ public class RestaurantDao {
         }
     }
 
-   /* public TypedQuery<RestaurantEntity> restaurantsByName(String restaurantName) {
-        try {
-            return entityManager.createNamedQuery("getRestaurantByName", RestaurantEntity.class).setParameter("someRestaurantName", restaurantName);
-        } catch (NoResultException nre) {
-            return null;
-        }
-    }*/
+
 
     public TypedQuery<RestaurantCategoryEntity> restaurantsByCategoryId(CategoryEntity categoryEntity) {
         try {
@@ -85,6 +79,8 @@ public class RestaurantDao {
             return null;
         }
     }
+
+
 
 
 }

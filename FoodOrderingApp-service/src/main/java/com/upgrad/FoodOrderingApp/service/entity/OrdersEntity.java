@@ -11,6 +11,9 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Table(name = "orders")
+@NamedQueries(
+        @NamedQuery(name="getOrderByRestaurant",query = "select o from OrdersEntity o where o.restaurantId =:restaurantId")
+)
 public class OrdersEntity {
 
     @Id

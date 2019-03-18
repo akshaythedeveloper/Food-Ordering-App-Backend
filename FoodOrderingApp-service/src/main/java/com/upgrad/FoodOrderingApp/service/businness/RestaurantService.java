@@ -46,15 +46,7 @@ public class RestaurantService {
         return restaurantEntities;
     }
 
-    /*public List<RestaurantEntity> getRestaurantsByName(String someRestaurantName) throws RestaurantNotFoundException {
-        if(someRestaurantName == null)
-        {
-            throw new RestaurantNotFoundException("RNF-003","Restaurant name field should not be empty");
-        }
-        List<RestaurantEntity> restaurantEntities =new ArrayList<>();
-        restaurantEntities = restaurantDao.getRestaurantByRestaurantName(someRestaurantName);
-        return restaurantEntities;
-    }*/
+
 
     public List<RestaurantCategoryEntity> restaurantByCategory(String someCategoryId) throws CategoryNotFoundException {
         if(someCategoryId == null)
@@ -149,4 +141,13 @@ public class RestaurantService {
         return restaurantEntity;
     }
 
+    public RestaurantEntity restaurantByUUID(String uuid) throws RestaurantNotFoundException {
+        RestaurantEntity restaurantEntity = new RestaurantEntity();
+        restaurantEntity = restaurantDao.restaurantsByRestaurantId(uuid);
+        if(restaurantEntity == null)
+        {
+            throw new RestaurantNotFoundException("RNF-001","No restaurant by this id");
+        }
+        return restaurantEntity;
+    }
 }
