@@ -86,4 +86,11 @@ public class AddressDao {
         }
     }
 
+    public StateEntity getStatesByAddress(String uuid) {
+        try {
+            return entityManager.createNamedQuery("stateByUuid" , StateEntity.class).setParameter("uuid" , uuid).getSingleResult();
+        } catch (NullPointerException nre) {
+            return null;
+        }
+    }
 }

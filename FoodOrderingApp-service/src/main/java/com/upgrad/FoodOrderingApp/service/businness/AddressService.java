@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 
@@ -80,7 +81,7 @@ public class AddressService {
 
     }
 
-    public TypedQuery<AddressEntity> getAllSavedAddresses(String authorization) throws AuthorizationFailedException {
+    public List<AddressEntity> getAllSavedAddresses(String authorization) throws AuthorizationFailedException {
 
         CustomerAuthEntity customerAuthEntity = addressDao.getCustomerByAccessToken(authorization);
 
@@ -104,19 +105,16 @@ public class AddressService {
 
         CustomerEntity customerEntity = customerAuthEntity.getCustomerId();
 
-        List<CustomerAddressEntity> customerAddressEntity = addressDao.allCustomerAddress().getResultList();
+        List<AddressEntity> customerAddressEntityList = new ArrayList<>();
 
-        for (CustomerAddressEntity customerAddressEntity1 : customerAddressEntity) {
+        List<CustomerAddressEntity> customerAddressEntity = addressDao.getCustomerAddress(customerEntity);
+
+        for(CustomerAddressEntity customerAddressEntity1 : customerAddressEntity) {
+            customerAddressEntityList.add(customerAddressEntity1.getAddressId());
 
         }
 
-        System.out.println(customerAuthEntity.getCustomerId());
-
-
-
-
-
-        return addressDao.getAllSavedAddresses();
+        return customerAddressEntityList;
 
     }
 
@@ -169,4 +167,8 @@ public class AddressService {
     }
 
 
+    public StateEntity getStatesByAddress(String uuid) {
+        StateEntity stateEntity = addressDao.getStatesByAddress(uuid);
+        return stateEntity;
+    }
 }

@@ -67,9 +67,9 @@ public class AddressController {
     @RequestMapping(method = RequestMethod.GET , path = "/address/customer" , produces = MediaType.APPLICATION_JSON_UTF8_VALUE )
     public ResponseEntity<List<AddressListResponse>> getAllSavedAddresses(@RequestHeader("authorization") final String authorization) throws AuthorizationFailedException {
 
-        List<AddressEntity> addressEntityList = addressBusinessService.getAllSavedAddresses(authorization).getResultList();
+        List<AddressEntity> addressEntityList = addressBusinessService.getAllSavedAddresses(authorization);
 
-        List<StateEntity> statesEntityList = addressBusinessService.getAllStates().getResultList();
+       // List<StateEntity> statesEntityList = addressBusinessService.getAllStates().getResultList();
 
 
         List<AddressListResponse> addressListResponses = new ArrayList<>();
@@ -87,6 +87,9 @@ public class AddressController {
             addressEntity.setLocality(addressEntity.getLocality());
             addressEntity.setCity(addressEntity.getCity());
             addressEntity.setPincode(addressEntity.getPincode());
+            StateEntity stateEntity = addressBusinessService.getStatesByAddress(addressEntity.getStateId().getUuid());
+
+            addressEntity.setStateId(stateEntity);
             addressLists.add(addressList);
 
         }

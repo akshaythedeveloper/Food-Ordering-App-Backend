@@ -180,6 +180,7 @@ public class CustomerService {
 
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     public CustomerEntity updateCustomerPassword(String authorization , CustomerEntity customerEntity , String oldPassword) throws AuthorizationFailedException , UpdateCustomerException {
 
